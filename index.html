@@ -1,182 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cascade Bruins Volleyball — Dinner & Tournament Sign-Up</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bruins Volleyball — Dinner Sign-Up</title>
   <style>
-    :root {
-      --crimson:#7a1f2a; --crimson-2:#a2313e; --gray:#6b7280;
-      --bg:#0f1216; --panel:#11161d; --ink:#f2f3f5; --muted:#aeb3bd;
-      --ok:#89e6b8; --warn:#ffe08a; --bad:#ff8a8a;
-      --radius:18px; --shadow:0 14px 40px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:radial-gradient(1000px 600px at -10% -10%, #171b23, var(--bg));
-      color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    header{padding:28px 18px 6px;text-align:center}
-    h1{margin:0;font-size:28px}
-    .brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:4px}
-    .crest img{height:54px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
-    p.sub{margin:6px 0 0;color:var(--muted)}
-    main{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;max-width:1100px;margin:26px auto;padding:0 18px}
-    @media (max-width:900px){main{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,var(--panel),#0b1017);border:1px solid rgba(255,255,255,.06);
-      border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card h2{margin:0;padding:18px;border-bottom:1px solid rgba(255,255,255,.06);font-size:18px}
-    .list{padding:8px 10px 10px}
-    .date{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px;padding:12px 14px;
-      border-radius:14px;background:#0c1118;border:1px solid rgba(255,255,255,.08)}
-    .date .meta{display:flex;flex-direction:column}
-    .date .when{font-weight:700}
-    .taken{opacity:.9;border-color:#1e2631;background:linear-gradient(180deg,#0b0f15,#0a0d11)}
-    .taken .who{color:var(--muted)} .taken .btn{display:none}
-    .btn{cursor:pointer;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,var(--crimson-2),var(--crimson));
-      color:#fff;padding:9px 12px;border-radius:10px}
-    .btn:hover{filter:brightness(1.06)} .btn:disabled{opacity:.55;cursor:not-allowed}
-    form{padding:14px 18px 20px}
-    label{display:block;margin:10px 0 4px;color:var(--muted);font-size:13px}
-    input,textarea,select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.09);
-      background:#0a1219;color:var(--ink);outline:none}
-    input:focus,textarea:focus,select:focus{border-color:var(--crimson-2);box-shadow:0 0 0 2px rgba(162,49,62,.28)}
+    body{font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:24px;max-width:760px;margin:0 auto;background:#0f1216;color:#e9ecf1}
+    h1{margin:0 0 10px}
+    small{color:#9aa3ad}
+    form, .panel{background:#141a22;border:1px solid #202734;border-radius:14px;padding:16px 18px;margin:16px 0}
+    label{display:block;margin:12px 0 6px}
+    input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2a3342;background:#0e131a;color:#e9ecf1}
+    button{padding:10px 14px;border-radius:10px;border:1px solid #2a3342;background:#1b2533;color:#e9ecf1;cursor:pointer}
+    button[disabled]{opacity:.6;cursor:not-allowed}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .help{font-size:12px;color:var(--muted)} .ok{color:var(--ok)} .err{color:var(--bad)}
-    footer{max-width:1100px;margin:18px auto;padding:0 18px 30px;color:var(--muted);font-size:12px;text-align:center}
-    table{width:100%;border-collapse:collapse} th,td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
-    th{color:#cfd5dc;font-weight:600}
-    .banner{max-width:1100px;margin:10px auto 0;padding:0 18px}
-    .banner>div{background:linear-gradient(180deg,rgba(122,31,42,.12),rgba(122,31,42,.08));
-      border:1px solid rgba(255,255,255,.12);color:#f2f3f5;padding:12px 14px;border-radius:12px;font-size:14px}
+    .ok{color:#86efac}.bad{color:#fda4af}
+    code{background:#0e131a;border:1px solid #2a3342;padding:2px 6px;border-radius:6px}
+    ul{margin:8px 0 0 18px}
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="crest"><img src="./assets/chs-logo.jpeg" alt="Cascade Bruins logo"></div>
-      <h1>Cascade Bruins Volleyball — Dinner & Tournament Sign-Up</h1>
-    </div>
-    <p class="sub">One volunteer per date to bring dinner/snacks. Home games + tournaments.</p>
-  </header>
 
-  <!-- Drinks reminder -->
-  <div class="banner">
-    <div><strong>Note on drinks:</strong> Drinks are <em>not required</em>. If you do bring them,
-      please stick to <strong>water or sports drinks</strong> — <strong>no energy drinks or caffeinated beverages</strong>.</div>
+  <h1>Dinner Sign-Up</h1>
+  <small>Enter the game/date and your contact info. No logos. No fuss.</small>
+
+  <div class="panel">
+    <strong>Current Sign-Ups</strong>
+    <div id="list">Loading…</div>
   </div>
 
-  <main>
-    <section class="card">
-      <h2>Open Dates</h2>
-      <div class="list" id="dates"></div>
-    </section>
-
-    <section class="card">
-      <h2>Volunteer Details</h2>
-      <form id="signupForm">
-        <label for="gameDate">Select Date</label>
-        <select id="gameDate" required></select>
-        <div class="row">
-          <div><label for="name">Your Name</label><input id="name" required /></div>
-          <div><label for="email">Email</label><input id="email" type="email" required /></div>
-        </div>
-        <label for="phone">Phone (optional)</label><input id="phone" />
-        <label for="notes">Notes (optional)</label><textarea id="notes"></textarea>
-        <button class="btn" type="submit">Reserve Date</button>
-        <span id="msg" class="help"></span>
-      </form>
-    </section>
-
-    <section class="card" style="grid-column:1/-1">
-      <h2>Current Signups</h2>
-      <div style="padding:14px 18px 20px">
-        <table id="roster">
-          <thead><tr><th>Date</th><th>Volunteer</th><th>Contact</th></tr></thead>
-          <tbody></tbody>
-        </table>
-        <p class="help" id="rosterEmpty" style="display:none">No signups yet — be the first! 🎉</p>
+  <form id="signupForm">
+    <div class="row">
+      <div>
+        <label for="id">Game/Date (ID) *</label>
+        <input id="id" name="id" placeholder="2025-09-18 or Home-Game-9/18" required />
       </div>
-    </section>
-  </main>
+      <div>
+        <label for="label">Friendly Label (optional)</label>
+        <input id="label" name="label" placeholder="Sept 18 Home Game" />
+      </div>
+    </div>
 
-  <footer>Cascade Bruins • Simple signup page powered by Google Sheets.</footer>
+    <div class="row">
+      <div>
+        <label for="name">Your Name *</label>
+        <input id="name" name="name" required />
+      </div>
+      <div>
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required />
+      </div>
+    </div>
+
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" placeholder="optional" />
+
+    <label for="notes">Notes</label>
+    <textarea id="notes" name="notes" rows="3" placeholder="Dish, allergies, etc."></textarea>
+
+    <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+      <button id="submitBtn" type="submit">Sign Me Up</button>
+      <span id="msg"></span>
+    </div>
+  </form>
 
   <script>
-    // === Your Apps Script Web App URL ===
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbwJacjmz1cChImr7aWCDc4WOjJoAll89YUMpzQU53H5SP-6SVw7eljO6KijUTAi6Ugc/exec";
+    // Apps Script /exec URL
+    const GAS_BASE = "https://script.google.com/macros/s/AKfycbzUkKzACCw6lnToG8xiHGj4XeXsA0aEOUFuFJ-yWphoBnRG_2JU463EkA15PofSPKW6/exec";
 
-    // All home games + tournaments (2025)
-    const GAMES = [
-      { id:"2025-09-09", label:"Tue Sept 9 — HOME vs Marysville–Pilchuck" },
-      { id:"2025-09-13", label:"Sat Sept 13 — VARSITY TOURNAMENT (Everett HS)" },
-      { id:"2025-09-20", label:"Sat Sept 20 — VARSITY/C-TEAM TOURNAMENT (Glacier Peak & Jackson HS)" },
-      { id:"2025-09-22", label:"Mon Sept 22 — HOME vs Mariner" },
-      { id:"2025-09-24", label:"Wed Sept 24 — HOME vs Kamiak" },
-      { id:"2025-10-01", label:"Wed Oct 1 — HOME vs Mountlake Terrace" },
-      { id:"2025-10-07", label:"Tue Oct 7 — HOME vs Lake Stevens" },
-      { id:"2025-10-13", label:"Mon Oct 13 — HOME vs Arlington • Dig for the Cure" },
-      { id:"2025-10-20", label:"Mon Oct 20 — HOME vs Everett • Spikefest" },
-      { id:"2025-10-28", label:"Tue Oct 28 — HOME vs Glacier Peak" },
-      { id:"2025-10-30", label:"Thu Oct 30 — HOME vs Jackson • Senior Night" }
-    ];
-    const LABELS = Object.fromEntries(GAMES.map(g => [g.id, g.label]));
+    const $ = (id) => document.getElementById(id);
+    const listEl = $("list"), form = $("signupForm"), btn = $("submitBtn"), msg = $("msg");
 
-    const $dates=document.getElementById('dates'), $select=document.getElementById('gameDate'),
-          $form=document.getElementById('signupForm'), $msg=document.getElementById('msg'),
-          $rosterBody=document.querySelector('#roster tbody'), $rosterEmpty=document.getElementById('rosterEmpty');
-
-    function option(label,value,disabled=false){const o=document.createElement('option');o.textContent=label;o.value=value;o.disabled=disabled;return o;}
-    function dateRow(game,taken){
-      const row=document.createElement('div');row.className='date'+(taken?' taken':'');
-      const left=document.createElement('div');left.className='meta';
-      const when=document.createElement('div');when.className='when';when.textContent=game.label;
-      const who=document.createElement('div');who.className='who help';
-      if(taken){const contact=[taken.email||'',taken.phone?`(${taken.phone})`:''].filter(Boolean).join(' ');
-        who.innerHTML=`Reserved by <strong>${taken.name}</strong> — ${contact}`;}
-      else{who.textContent='Open — 1 slot';}
-      const right=document.createElement('div');
-      const btn=document.createElement('button');btn.className='btn';btn.textContent=taken?'Full':'Sign Up';btn.disabled=!!taken;
-      btn.onclick=()=>{$select.value=game.id;document.getElementById('name').focus();window.scrollTo({top:0,behavior:'smooth'});};
-      left.appendChild(when);left.appendChild(who);right.appendChild(btn);
-      row.appendChild(left);row.appendChild(right);return row;
-    }
-    function renderDates(listing){
-      $dates.innerHTML='';$select.innerHTML='';$select.appendChild(option('Choose a date…','',true));
-      GAMES.forEach(g=>{const taken=listing[g.id]||null;$dates.appendChild(dateRow(g,taken));$select.appendChild(option(g.label,g.id,!!taken));});
-    }
-    function renderRoster(listing){
-      const taken=Object.entries(listing).filter(([id])=>LABELS[id])
-        .map(([id,v])=>({id,label:LABELS[id],...v})).sort((a,b)=>a.id.localeCompare(b.id));
-      $rosterBody.innerHTML='';
-      if(!taken.length){$rosterEmpty.style.display='block';return;} $rosterEmpty.style.display='none';
-      taken.forEach(r=>{const contact=[r.email||'',r.phone?`(${r.phone})`:''].filter(Boolean).join(' ');
-        const tr=document.createElement('tr');tr.innerHTML=`<td>${r.label}</td><td>${r.name}</td><td>${contact}</td>`;$rosterBody.appendChild(tr);});
+    async function loadList(){
+      try{
+        const res = await fetch(`${GAS_BASE}?action=list`, { method: "GET" });
+        const json = await res.json();
+        let data = {};
+        if (json && typeof json === 'object' && Object.prototype.hasOwnProperty.call(json, 'ok')) {
+          if(!json.ok) throw new Error(json.error || "Failed to load list");
+          data = json.data || {};
+        } else {
+          data = json || {};
+        }
+        const items = Object.keys(data).sort().map(id => {
+          const r = data[id] || {};
+          const who = r.name ? `${r.name} (${r.email || ''})` : "(empty)";
+          return `<li><code>${id}</code> — ${who}${r.notes ? ` — ${r.notes}` : ""}</li>`;
+        });
+        listEl.innerHTML = items.length ? `<ul>${items.join("")}</ul>` : "<em>No sign-ups yet.</em>";
+      }catch(err){
+        listEl.innerHTML = `<span class="bad">Error loading list: ${String(err)}</span>`;
+      }
     }
 
-    async function fetchListing(){const r=await fetch(GAS_URL+'?action=list');if(!r.ok)throw new Error('Failed to load');return r.json();}
-    async function submitSignup(payload){
-      const r=await fetch(GAS_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-      if(!r.ok)throw new Error('Failed to submit');return r.json();
-    }
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.textContent = "";
+      btn.disabled = true;
+      const payload = {
+        id: $("id").value.trim(),
+        label: $("label").value.trim(),
+        name: $("name").value.trim(),
+        email: $("email").value.trim(),
+        phone: $("phone").value.trim(),
+        notes: $("notes").value.trim()
+      };
+      try{
+        const res = await fetch(GAS_BASE, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const json = await res.json();
+        if(json.ok){
+          msg.textContent = "✅ Confirmed!";
+          msg.className = "ok";
+          form.reset();
+          await loadList();
+        }else{
+          msg.textContent = `❌ ${json.error || "Failed"}`;
+          msg.className = "bad";
+        }
+      }catch(err){
+        msg.textContent = `❌ ${String(err)}`;
+        msg.className = "bad";
+      }finally{
+        btn.disabled = false;
+      }
+    });
 
-    (async function(){
-      try{const listing=await fetchListing();renderDates(listing);renderRoster(listing);}catch(e){renderDates({});renderRoster({});}
-      $form.addEventListener('submit',async e=>{
-        e.preventDefault();$msg.textContent='';
-        const id=$select.value,name=document.getElementById('name').value.trim(),
-              email=document.getElementById('email').value.trim(),
-              phone=document.getElementById('phone').value.trim(),
-              notes=document.getElementById('notes').value.trim();
-        if(!id||!name||!email){$msg.textContent='Fill all required fields';return;}
-        const btn=$form.querySelector('button[type=submit]');btn.disabled=true;
-        try{const res=await submitSignup({id,name,email,phone,notes});
-          if(res&&res.ok){$msg.textContent='Saved! Confirmation email sent.';$msg.className='help ok';
-            const listing2=await fetchListing();renderDates(listing2);renderRoster(listing2);
-            $form.reset();$select.selectedIndex=0;}
-          else{throw new Error(res&&res.error?res.error:'Unknown error');}}
-        catch(err){$msg.textContent=err.message||'Error';$msg.className='help err';}
-        finally{btn.disabled=false;}
-      });
-    })();
+    loadList();
   </script>
 </body>
 </html>
